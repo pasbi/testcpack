@@ -7,6 +7,10 @@ endif (POLICY CMP0048)
 
 project(testcpack VERSION 0.0.1)
 
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTOUIC ON)
+
+find_package(Qt5 REQUIRED COMPONENTS Widgets Svg LinguistTools)
 find_package(PkgConfig)
 
 set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake/" ${CMAKE_MODULE_PATH})
@@ -31,6 +35,7 @@ target_include_directories(testcpack PUBLIC
     "${PROJECT_BINARY_DIR}"
 )
 target_compile_features(testcpack PUBLIC cxx_std_17)
+target_link_libraries(testcpack Qt5::Widgets Qt5::Svg)
 
 if (WIN32)
   target_link_libraries(testcpack -lopengl32)

@@ -1,7 +1,10 @@
-#include <iostream>
+#include <QMainWindow>
+#include <QApplication>
 
-int main()
+int main(int argc, char* argv[])
 {
-  std::cout << "Hello CPack!" << std::endl;
-  return 123;
+  QApplication app(argc, argv);
+  QMainWindow w;
+  w.show();
+  return app.exec();
 }
